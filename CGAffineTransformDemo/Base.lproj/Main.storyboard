@@ -148,18 +148,51 @@
                                     <constraint firstItem="qT5-66-YDR" firstAttribute="top" secondItem="5Lh-TM-Uj4" secondAttribute="top" id="eH9-j4-yYl"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECP-iM-5nv">
+                                <rect key="frame" x="11" y="353" width="350" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旋转" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibx-YZ-nz0">
+                                        <rect key="frame" x="15" y="0.0" width="65" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="D8g-9i-i8I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TcH-o1-fkG">
+                                        <rect key="frame" x="86" y="0.0" width="250" height="31"/>
+                                        <connections>
+                                            <action selector="changeLeftOrRightSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Q7s-Ue-KFh"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IA4-g5-sZL"/>
+                                    <constraint firstItem="TcH-o1-fkG" firstAttribute="top" secondItem="ECP-iM-5nv" secondAttribute="top" id="OiD-xt-cxP"/>
+                                    <constraint firstAttribute="trailing" secondItem="TcH-o1-fkG" secondAttribute="trailing" constant="16" id="QPg-JF-o7O"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ibx-YZ-nz0" secondAttribute="bottom" id="aRG-f9-EoY"/>
+                                    <constraint firstItem="Ibx-YZ-nz0" firstAttribute="leading" secondItem="ECP-iM-5nv" secondAttribute="leading" constant="15" id="cld-xD-s94"/>
+                                    <constraint firstItem="TcH-o1-fkG" firstAttribute="leading" secondItem="Ibx-YZ-nz0" secondAttribute="trailing" constant="8" id="dow-Mu-IQG"/>
+                                    <constraint firstItem="Ibx-YZ-nz0" firstAttribute="top" secondItem="ECP-iM-5nv" secondAttribute="top" id="j73-Mq-1Ox"/>
+                                    <constraint firstAttribute="bottom" secondItem="TcH-o1-fkG" secondAttribute="bottom" id="mJ8-cv-s4C"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Lh-TM-Uj4" firstAttribute="top" secondItem="wjP-BA-iFn" secondAttribute="bottom" constant="3" id="39n-ZZ-RG4"/>
                             <constraint firstAttribute="trailing" secondItem="SzE-pG-Pha" secondAttribute="trailing" constant="14" id="3f1-Ly-jO3"/>
                             <constraint firstItem="wjP-BA-iFn" firstAttribute="top" secondItem="SzE-pG-Pha" secondAttribute="bottom" constant="5" id="5xI-uU-9wi"/>
+                            <constraint firstItem="ECP-iM-5nv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="11" id="El1-YS-XB6"/>
                             <constraint firstItem="wjP-BA-iFn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="11" id="K0U-EI-UGC"/>
+                            <constraint firstItem="ECP-iM-5nv" firstAttribute="top" secondItem="5Lh-TM-Uj4" secondAttribute="bottom" constant="4" id="Pc0-yx-hPT"/>
                             <constraint firstAttribute="trailing" secondItem="wjP-BA-iFn" secondAttribute="trailing" constant="14" id="TkM-kO-hrQ"/>
                             <constraint firstItem="SzE-pG-Pha" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="11" id="VR8-Rd-PJv"/>
                             <constraint firstAttribute="trailing" secondItem="5Lh-TM-Uj4" secondAttribute="trailing" constant="14" id="YMA-cf-Ubf"/>
                             <constraint firstItem="SzE-pG-Pha" firstAttribute="top" secondItem="IP2-XC-kwB" secondAttribute="bottom" constant="8" id="aT9-ou-jXE"/>
                             <constraint firstItem="vbi-ay-F94" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bh8-Kb-ACN"/>
+                            <constraint firstAttribute="trailing" secondItem="ECP-iM-5nv" secondAttribute="trailing" constant="14" id="cCK-2q-3ad"/>
                             <constraint firstItem="IP2-XC-kwB" firstAttribute="top" secondItem="vbi-ay-F94" secondAttribute="bottom" constant="18" id="ctL-ok-gRc"/>
                             <constraint firstAttribute="trailing" secondItem="IP2-XC-kwB" secondAttribute="trailing" constant="14" id="oW3-iS-BfV"/>
                             <constraint firstItem="vbi-ay-F94" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xda-gp-8I0"/>
@@ -170,6 +203,7 @@
                     </view>
                     <connections>
                         <outlet property="leftAndRightSlider" destination="s5S-X4-eOH" id="cvn-WD-mel"/>
+                        <outlet property="rotationSlider" destination="TcH-o1-fkG" id="Bzl-hV-Czt"/>
                         <outlet property="testImageView" destination="vbi-ay-F94" id="A8Y-Xf-Y5a"/>
                         <outlet property="upAndDownSlider" destination="DJo-dD-MuM" id="hjR-Qe-avO"/>
                         <outlet property="xScaleSlider" destination="IRT-EN-3J6" id="3Qb-YV-kEG"/>

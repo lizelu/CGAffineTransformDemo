@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var upAndDownSlider: UISlider!
     @IBOutlet var xScaleSlider: UISlider!
     @IBOutlet var yScalerSlider: UISlider!
-    
+    @IBOutlet var rotationSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.congfigSlider()
@@ -37,12 +37,23 @@ class ViewController: UIViewController {
         yScalerSlider.minimumValue = -Float(1)
         yScalerSlider.maximumValue = Float(1)
         yScalerSlider.value = 1
+        
+        rotationSlider.minimumValue = -Float(2 * M_PI)
+        rotationSlider.maximumValue = Float(2 * M_PI)
+        rotationSlider.value = 0
     }
 
     @IBAction func changeLeftOrRightSlider(_ sender: UISlider) {
-        //左右移动
-        var transform = CGAffineTransform(translationX: CGFloat(leftAndRightSlider.value), y: CGFloat(-upAndDownSlider.value))
-        transform = transform.scaledBy(x: CGFloat(xScaleSlider.value), y: CGFloat(yScalerSlider.value))
+        //平移
+        var transform = CGAffineTransform.identity
+        transform = transform.translatedBy(x: CGFloat(leftAndRightSlider.value),
+                                           y: CGFloat(-upAndDownSlider.value))
+        
+        transform = transform.scaledBy(x: CGFloat(xScaleSlider.value),
+                                       y: CGFloat(yScalerSlider.value))
+        
+        transform = transform.rotated(by: CGFloat(rotationSlider.value))
+        
         testImageView.transform = transform
         
     }
