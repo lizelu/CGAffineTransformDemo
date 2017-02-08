@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet var testImageView: UIImageView!
     @IBOutlet var leftAndRightSlider: UISlider!
     @IBOutlet var upAndDownSlider: UISlider!
+    @IBOutlet var xScaleSlider: UISlider!
+    @IBOutlet var yScalerSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.congfigSlider()
@@ -26,10 +29,21 @@ class ViewController: UIViewController {
         upAndDownSlider.minimumValue = -Float(testImageView.height)
         upAndDownSlider.maximumValue = Float(testImageView.height)
         upAndDownSlider.value = 0
+        
+        xScaleSlider.minimumValue = -Float(1)
+        xScaleSlider.maximumValue = Float(1)
+        xScaleSlider.value = 1
+        
+        yScalerSlider.minimumValue = -Float(1)
+        yScalerSlider.maximumValue = Float(1)
+        yScalerSlider.value = 1
     }
 
     @IBAction func changeLeftOrRightSlider(_ sender: UISlider) {
-        testImageView.transform = CGAffineTransform(translationX: CGFloat(leftAndRightSlider.value), y: CGFloat(-upAndDownSlider.value))
+        //左右移动
+        var transform = CGAffineTransform(translationX: CGFloat(leftAndRightSlider.value), y: CGFloat(-upAndDownSlider.value))
+        transform = transform.scaledBy(x: CGFloat(xScaleSlider.value), y: CGFloat(yScalerSlider.value))
+        testImageView.transform = transform
         
     }
     
