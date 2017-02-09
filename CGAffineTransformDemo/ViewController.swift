@@ -44,18 +44,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func changeLeftOrRightSlider(_ sender: UISlider) {
-        //平移
+        
         var transform = CGAffineTransform.identity
+    
+        //平移
         transform = transform.translatedBy(x: CGFloat(leftAndRightSlider.value),
                                            y: CGFloat(-upAndDownSlider.value))
-        
+        //缩放
         transform = transform.scaledBy(x: CGFloat(xScaleSlider.value),
                                        y: CGFloat(yScalerSlider.value))
-        
+        //旋转
         transform = transform.rotated(by: CGFloat(rotationSlider.value))
         
         testImageView.transform = transform
-        
     }
     
     override func didReceiveMemoryWarning() {
